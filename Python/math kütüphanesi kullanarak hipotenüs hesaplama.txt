@@ -1,0 +1,11 @@
+#math kütüphanesi kullanarak hipotenüs hesaplama
+
+import math
+def artir (a,b):
+     hipotenüs = math.sqrt(x*x + y*y)
+     print(hipotenüs)
+     return(a,b)
+     
+x =int(input("birinci dik açıyı giriniz"))
+y =int(input("birinci dik açıyı giriniz"))
+artir(x,y)

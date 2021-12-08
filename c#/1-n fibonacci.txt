@@ -1,0 +1,10 @@
+            int a = 1, b = 1, sonuc = 0;
+            Console.WriteLine("fibonaccinin kaç terimini istiyorsunuz");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            for(int i = 1; i <= sayi; i++)
+            {
+                a = b;
+                b = sonuc;
+                sonuc = a + b;
+                Console.WriteLine(sonuc);
+            }

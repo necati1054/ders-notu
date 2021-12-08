@@ -1,0 +1,18 @@
+            int adet=0;
+            Console.WriteLine("sayı giriniz");
+            int sayi = Convert.ToInt32(Console.ReadLine());
+            for(int i = 1; i <= sayi; i++)
+            {
+                adet = 0;
+                for(int a = 1; a <= i; a++)
+                {
+                    if (i % a == 0)
+                    {
+                        adet++;
+                    }
+                }
+                if (adet == 2)
+                {
+                    Console.WriteLine(i);
+                }
+            }

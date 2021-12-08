@@ -1,0 +1,14 @@
+//math kütüphanesini kullanarak küp hesabı
+
+        static bool küp(double x)
+        {
+            double hesap = Math.Pow(x, 3);
+            Console.WriteLine(hesap);
+            return true;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("bir sayı giriniz");
+            int a = Convert.ToInt32(Console.ReadLine());
+            küp(a);
+        }

@@ -1,0 +1,6 @@
+import math
+for i in range(1,11):
+    print('{} sayının karekökü= {}'.format(i,math.sqrt(i)))
+print("*****************************************************")
+for a in range(1,11):
+    print('{} sayının kareleri= {}'.format(a,a*a))

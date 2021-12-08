@@ -1,0 +1,24 @@
+            int büyük, sonuc = 1;
+            if (s1 > s2)
+            {
+                büyük = s1;
+            }
+            else
+                büyük = s2;
+            for(int i=büyük; i > 0; i--)
+                if(i % s1  == 0 && i % s2 == 0)
+                {
+                    sonuc = i;
+                    break;
+                }
+            return sonuc;
+        }
+        static void Main(string[] args)
+        {
+            int s1, s2, ekok;
+            Console.WriteLine("Lütfen bir sayı giriniz");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Lütfen bir sayı giriniz");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            ekok = ekokBul(s1, s2);
+            Console.WriteLine("girilen sayılarının ekok u= " +ekok.ToString());

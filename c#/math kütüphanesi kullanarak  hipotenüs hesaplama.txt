@@ -1,0 +1,17 @@
+// math kütüphanesini kullanarak hipotenüs hesaplama
+
+        static int pisagor(int x , int y) //işlem değişkeninin geri döndürmek için kullandık static bool pisagor diye tanımlayıp return de true yazarak da işlem i geri döndürme yapa biliriz
+        {
+            int işlem = 0;
+            double hipotenüs = Math.Sqrt(x * x + y * y);
+            Console.WriteLine("hipotenüs uzunuluğu= " + hipotenüs);
+            return işlem;
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Birinci dik kenarı giriniz");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ikinci dik kenarı girinz");
+            int b = Convert.ToInt32(Console.ReadLine());
+            pisagor(a, b);
+        }

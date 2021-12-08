@@ -1,0 +1,8 @@
+#sürekli girilen sayıların toplamı while kullanarak
+
+t=0
+s=int
+while(s!=0):
+    s=int(input("sayı girniz"))
+    t+=s
+print(t)

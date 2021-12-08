@@ -1,0 +1,26 @@
+        static int ObebBul(int x,int y)
+        {
+            int kuçuk, sonuc = 1;
+            if (x < y)
+            {
+                kuçuk = x;
+            }
+            else
+                kuçuk = y;
+            for(int i=kuçuk; i > 0; i--)
+                if(x % i ==0 && y % i == 0)
+                {
+                    sonuc = i;
+                    break;
+                }
+            return sonuc;
+        }
+        static void Main(string[] args)
+        {
+            int s1, s2, obeb;
+            Console.WriteLine("Lütfen bir sayı giriniz");
+            s1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Lütfen bir sayı giriniz");
+            s2 = Convert.ToInt32(Console.ReadLine());
+            obeb = ObebBul(s1, s2);
+            Console.WriteLine("{s1} ve {s2} sayılarının ");

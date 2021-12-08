@@ -1,0 +1,16 @@
+            int sayi,top=0;
+            Console.WriteLine("bir sayı giriniz");
+            sayi = Convert.ToInt32(Console.ReadLine());
+            for(int i = 1; i < sayi; i++)
+            {
+                if (sayi % i == 0)
+                {
+                    top += i;
+                }
+            }
+            if (sayi == top)
+            {
+                Console.WriteLine("{0} girilen sayı mükemmel sayıdır",sayi);
+            }
+            else
+                Console.WriteLine("{0} girilen sayı mükemmel sayıdeğildir", sayi);

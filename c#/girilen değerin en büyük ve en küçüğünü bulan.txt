@@ -1,0 +1,22 @@
+            //girilen değerlerden en büyük ve en küçük olanları bulan program
+            int ebs = -2000000000;
+            int eks = 2000000000;
+            while (true)
+            {
+                Console.WriteLine("Lütfen bir sayı giriniz");
+                int sayi = Convert.ToInt32(Console.ReadLine());
+                if (sayi > ebs)
+                {
+                    ebs = sayi;
+                }
+                else if (sayi < eks)
+                {
+                    eks = sayi;
+                }
+                else if (sayi == 0)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine("girilen değerlerden en büyük değer= " + ebs);
+            Console.WriteLine("girilen değerlerden en küçük değer= " + eks);

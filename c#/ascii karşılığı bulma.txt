@@ -1,0 +1,4 @@
+            Console.WriteLine("lütfen klavyeden bir tuşa basınız");
+            char str = Convert.ToChar(Console.ReadLine());
+            int ascii = str;
+            Console.WriteLine(str + " karekterinin ascii karşılığı= " + ascii);

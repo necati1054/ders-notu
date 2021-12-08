@@ -1,0 +1,10 @@
+            int sonuc = 0;
+            Console.WriteLine("sayı giriniz");
+            int s1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("sayı giriniz");
+            int s2 = Convert.ToInt32(Console.ReadLine());
+            for(int i = 1; i <= s2; i++)
+            {
+                sonuc = sonuc + s1;
+            }
+            Console.WriteLine(sonuc);

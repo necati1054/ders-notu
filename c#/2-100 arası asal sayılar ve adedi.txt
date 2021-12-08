@@ -1,0 +1,21 @@
+            int sayaç = 0;
+            for(int sayi = 2; sayi <= 100; sayi++)
+            {
+                int kontrol = 0;
+                for(int i=2;i < sayi; i++)
+                {
+                    if(sayi % i == 0)
+                    {
+                        kontrol = 1;
+                        break;
+                    }
+
+                }
+                if (kontrol != 1)
+                {
+                    Console.WriteLine("{0} asaldır.", sayi);
+                    sayaç++;
+                }
+            }
+            Console.WriteLine("*************************************************");
+            Console.WriteLine("{0} adet sayı asal sayıdır", sayaç);

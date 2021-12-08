@@ -1,0 +1,14 @@
+import random
+çift = 0
+tek = 0
+for i in range(0,100):
+    sayı=random.randint(1,9)
+    #print(sayı)
+    if(sayı % 2 == 0):
+        çift += sayı
+    else:
+        tek += sayı
+print("tek sayıların toplamı")
+print(tek)
+print("çift sayıların toplamı")
+print(çift)

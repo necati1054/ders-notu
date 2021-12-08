@@ -1,0 +1,16 @@
+            int sayi, tek=0, çift=0;
+            for(int i = 1; i <= 10; i++)
+            {
+                Random random = new Random();
+                sayi = random.Next(0,100);
+                if (sayi % 2 == 0)
+                {
+                    çift += 1;
+                }
+                else
+                {
+                    tek += 1;
+                }
+            }
+            Console.WriteLine("çift sayıların adedi " + çift);
+            Console.WriteLine("tek sayıların adedi " + tek);

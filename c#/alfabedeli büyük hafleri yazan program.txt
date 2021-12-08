@@ -1,0 +1,6 @@
+            string alfabe = "";
+            for (char karekter = 'A'; karekter <= 'Z'; karekter++)
+            {
+                alfabe = alfabe + karekter;
+            }
+            Console.WriteLine(alfabe);

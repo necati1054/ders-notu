@@ -1,0 +1,20 @@
+            int a, b, c, tpl = 0, es = 0;
+            double ort;
+            Console.WriteLine("ilk sayıyı giriniz");
+            a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("ikinci sayıyı giriniz");
+            b = Convert.ToInt32(Console.ReadLine());
+            if(a > b)
+            {
+                c = a;
+                a = b;
+                b = c;
+            }
+            for(int i = a; i <= b; i++)
+            {
+                tpl = tpl +i;
+                es++;
+            }
+            ort = tpl / es;
+            Console.WriteLine("sayıların toplamı= " + tpl);
+            Console.WriteLine("sayıların ortalaması= " + ort);

@@ -1,0 +1,10 @@
+//0 ile 100 arasıda mı 
+            int a = Convert.ToInt32(Console.ReadLine());
+            if (a>=0 & a <= 100)
+            {
+                Console.WriteLine("sayı sıfır ile yüz arasında");
+            }
+            else
+            {
+                Console.WriteLine("sayı sıfır ile yüz arasında değil");
+            }

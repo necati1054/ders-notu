@@ -1,0 +1,11 @@
+// while döngüsü ile girilen sayıların toplamı
+
+            int t = 0, s;
+            do
+            {
+                Console.WriteLine("sayı giriniz");
+                s = Convert.ToInt32(Console.ReadLine());
+                t += s;
+            }
+            while (s != 0);
+            Console.WriteLine(t);
