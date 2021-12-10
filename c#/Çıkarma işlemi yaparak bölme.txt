@@ -1,12 +1,12 @@
-            int s1, s2,k=0,b=0;
-            Console.WriteLine("sayı giriniz");
-            s1 = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("sayı giriniz");
-            s2 = Convert.ToInt32(Console.ReadLine());
-            while(s1 >= s2)
+            int bölüm = 0;
+            Console.WriteLine("lütfen sayı giriniz");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("lütfen sayı giriniz");
+            int b = Convert.ToInt32(Console.ReadLine());
+            while (a >= b)
             {
-                k = s1 - s2;
-                b++;
-                s1 = k;
+                a = a - b;
+                bölüm += 1;
             }
-            Console.WriteLine("bölüm= " + b + " " + "kalan " + k);
+            Console.WriteLine("bölüm" + bölüm);
+            Console.WriteLine("kalan" + a);
