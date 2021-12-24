@@ -1,0 +1,13 @@
+buyuk = 0
+sonuc = 1
+def ekok_bulma(sayı1, sayı2):
+    buyuk = sayı1 * sayı2 
+    for i in range (buyuk,0,-1):
+        if (i % sayı1 == 0 and i % sayı2 == 0):
+            sonuc = i
+    return sonuc
+ 
+sayı1 = int(input("Sayı1: "))
+sayı2 = int(input("Sayı2: "))
+ekok = ekok_bulma(sayı1,sayı2)
+print("Ekok: ",ekok_bulma(sayı1,sayı2))

@@ -1,0 +1,2 @@
+a=str(input("bir karakter giriniz"))
+print(ord(a))
