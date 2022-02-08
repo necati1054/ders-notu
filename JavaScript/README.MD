@@ -49,7 +49,7 @@ False
 ---
 
 ## Değişken Türünü Kontrol Etmek
-
+* isInteger, isFinite, Number.isNaN, typof kullanarak değişkenlerin türünü kontrol edebiliriz.
 ```JavaScript
 console.log(typeof 42);
 // beklenen output: "number"
@@ -86,6 +86,7 @@ Number.isNaN(NaN) //true
 ---
 
 ## Template Literals Kullanımı
+* birdin fazla satıra kod yazmamızı sağlar
 
 ``` JavaScript
 let ad= `Aycan`;
@@ -124,7 +125,6 @@ document.body.innerHTML = kisi;
 ---
 
 ## String Veri Türü İşlemleri
-
 * Length Özelliği - Uzunluk Değerini Alma
 * indexOf - Metin İçinde Arama Yapma
 * lastIndexO f- Metin İçinde Arama Yapma
@@ -139,3 +139,55 @@ document.body.innerHTML = kisi;
 * Split – Metni Diziye Çevirme
 
 ---
+
+## DOM Icinden Oge Secimi
+
+* queryselector yardımı ile sınıf, ıd yada emmet yazımı ile seçip istediğimiz yere istediğimiz bilgiyi ekleme imkanı tanıyor.
+```JavaScript
+let link = document.querySelector("#kodluyoruzLink")
+link.innerHTML += " degisti"
+```
+
+## prompt ile Kullanicidan Bilgi Almak
+* prompt yardımı ile kullanıcıdan bilgi alıp bu bilgiyi işleyerek işlemler yapa biliriz
+
+```JavaScript
+let fullName = prompt("Lutfen Adinizi Giriniz: ")
+
+let greeting = document.querySelector("#greeting")
+
+greeting.innerHTML = `${greeting.innerHTML} <small style="color:red">${fullName}</small>`
+```
+
+## liste icerisindeki son elemana ulasmak veya eleman eklemek
+* burada da listenin en başına yada en sonundaki bilgiyi alma yada ekleme yapabiliriz
+```JavaScript
+let lastChild = document.querySelector("ul#list>li:last-child")
+lastChild.innerHTML = "son oge degisti..."
+
+let firstChild = document.querySelector("ul#list>li:first-child")
+firstChild.innerHTML = "ilk oge degisti..."
+
+let ulDOM = document.querySelector("ul#list")
+let liDOM = document.createElement('li')
+
+liDOM.innerHTML = "Kendi Olusturdugumuz Oge"
+
+ulDOM.append(liDOM) // en sona ekler
+ulDOM.prepend(liDOM) //em başa ekler
+```
+
+## css class eklemek veya cikartmak
+* ClassList.add metodu ile istediğimiz yere class uygulaya biliriz
+```JavaScript
+let greeting = document.querySelector("#greeting")
+
+greeting.classList.add("text-primary")
+greeting.classList.add("title")
+greeting.classList.add("new-info", "second-class", "third-class") // birden fazla class eklemek
+
+
+greeting.classList.remove("title", "second-class", "third-class") // birden fazla class silmek
+
+console.log(greeting.classList)
+```
