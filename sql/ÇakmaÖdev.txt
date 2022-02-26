@@ -1,0 +1,80 @@
+1) şirketin bu ayki cirosu 
+
+select u.urun ,u.stok * u.fiyat [ciro]
+from urunler u, satislar s
+where u.urunno = s.urunno
+
+2) bu ay hiç satmayan ürünlerin listesi (sanırım hatalı burası) 
+
+select * from urunler u, satislar s
+where u.urunno = s.urunno and u.urunno not in (select urunno from satislar)
+and s.tarih between '01.09.2021 ' and '30.09.2021'
+
+3) geçen ay 10 adet ten daha az satış yapmış olan elemanların listesi
+
+select p.adı + ' ' + p.soyadı [Ad - soyad] , sum(s.adet) [adett]
+from  satislar s, personeller p
+where p.perno = s.perno and s.tarih between '01.09.2021' and '30.09.2021' 
+group by p.adı , p.soyadı
+having sum(s.adet) < 10 
+order by sum(s.adet) desc
+
+4) en çok satılan ürünümüz
+
+select top 1 * from urunler u, satislar s where (u.urunno=s.urunno) and (s.urunno in (select satislar.urunno from satislar group by satislar.urunno having SUM(adet)>0)) order by adet desc;
+
+5) bu ay en çok satış yapmış personel
+
+select top 1 p.adı + ' ' + p.soyadı , sum(s.adet) [adett]
+from  satislar s, personeller p
+where p.perno = s.perno and s.tarih between '01.10.2021' and '31.10.2021'
+group by p.adı , p.soyadıF
+order by sum(s.adet) desc
+
+6) yeni bir ürün ekleyen sql kodu 
+
+insert into urunler
+(urun, stok, sontar, fiyat)
+values
+('Kulaklık', 20 ,' ', 1000)
+
+7) satış tarihi girilmemiş olan satışları silen sql
+
+delete from satislar where tarih IS NULL
+
+8) personelin iletişim bilgisini güncelleyen sql 
+
+update personeller
+set iletişim = 5075929715
+where perno = 5
+
+9) bu hafta gerçekleşen satışlar 
+
+select u.urun, p.adı , p.soyadı , s.tarih , s.adet
+from satislar s, personeller p, urunler u								/*(tam çalışması için tarihin date olarak girilmesi gerekiyor varchar kullanırsam tam olarak çıkmaz unutma )*/
+where s.urunno = u.urunno and p.perno = s.perno and s.tarih between '11.10.2021 ' and '17.10.2021' 
+
+10) bu yıl hangi üründen toplam kaç adet satılmış
+
+select u.urun, sum(s.adet) [Toplam]                  /*10) bu yıl hangi üründen toplam kaç adet satılmış */
+from satislar s , urunler u
+where u.urunno = s.urunno and s.tarih between '01.01.2021' and '01.01.2022' /* 2021-01-01 */
+group by u.urun
+
+11) hiç satılmamış ürünlerin listesi (kendim ekledim) 
+
+select * from urunler
+where urunno not in (select urunno from satislar),
+
+
+
+select top 1 * from urunler u, satislar s where (u.urunno=s.urunno) and (s.urunno in (select satislar.urunno from satislar group by satislar.urunno having SUM(adet)>0)) order by adet desc;
+
+select p.adı + ' ' + p.soyadı , sum(s.adet) [adett]
+from  satislar s, personeller p
+where p.perno = s.perno and s.tarih between '01.09.2021' and '30.09.2021' 
+group by p.adı , p.soyadı
+order by sum(s.adet) desc 
+
+
+

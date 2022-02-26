@@ -1,0 +1,99 @@
+1) ihsan hocanın sınavlarını listeyen sql
+
+select h.hoca, s.dersno
+from hocalar h, sinavlar s
+where h.hocano = s.sinavno and h.hocano = 1
+
+2) ihsan hocanın gözetmenliklerini listeyelen sql
+
+select h.hoca, s.dersno
+from hocalar h, sinavlar s
+where h.hocano = s.gozno and h.hocano = 1
+
+3) herhangibi bir sınav kaydeden sql
+
+insert into sinavlar
+(bolumno, dersno, derslikno, tarihno, saatno, hocano, gozno)
+values
+(2,1,1,2,2,2,2)
+
+4) herhangibi bir sınavı güncelleyen sql
+
+update sinavlar
+	set saatno = 2
+	where sinavno = 7
+
+5) sınav tarihi veya saati girilmemiş olan sınavları silen sql
+
+delete
+from sinavlar
+where saatno = null  or tarihno = null
+
+6) hangi hocanın kaç gözetmenliği var
+
+select h.hoca, count(s.gozno)
+from hocalar h, sinavlar s
+where h.hocano = s.gozno
+group by h.hoca
+
+7) hangi günün hangi saatinde kaç sınav var desc ye göre sırala
+
+select st.tarihno,ss.saatno, count(s.sinavno) [adet]
+from sinavlar s, sinav_tarihleri st, sinav_saatleri ss
+where s.tarihno = st.tarihno and s.saatno = ss.saatno
+group by st.tarihno, ss.saatno
+order by count(s.sinavno) desc
+
+8) veri tabanı dersin sınavı ne zaman
+
+select s.tarihno, s.saatno, d.ders
+from sinavlar s, dersler d
+where s.dersno = d.dersno and d.ders like '%veri%'
+
+9) kendiniz 6 tane sql oluştur kendin de cevapla
+-1) derslik e ders ekleyen sql
+
+insert into derslikler
+(derslik, kapasite)
+values
+('k1-5', 20)
+
+-2) sınav saatini güncelleyen sql
+
+update sinavlar
+	set saatno = 3
+	where sinavno = 10
+
+-3) sınav yerini güncelleyen sql 
+
+update sinavlar
+	set derslikno = 1
+	where sinavno = 10
+
+-4) bilg prog 1. sınıf Nö sınavları
+
+select *
+from bolumler b,sinavlar s
+where b.bolumno = 1 and b.bolumno = s.bolumno
+
+-5) hocalar tablosuna telefon no kolonu ekleyen sorgu
+
+alter table hocalar
+ADD telefonno int
+
+-6) hocalar tablosuna telefon no kolununu silen
+
+alter table hocalar
+drop column telefonno 
+
+-7) yeni tablo ekleyen sorgu
+
+create table deneme
+(	id int not null ,
+	isim varchar(50),
+	soyisim varchar(50),
+	primary key (id));
+
+--8) tablo silen 
+
+drop table deneme

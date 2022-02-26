@@ -1,0 +1,7 @@
+sql server 2019 dan yedek alınmıştır onun içinde kullanılabilir
+kullanımı için sql server ı açın ve bağlanın 
+sağ taraftaki database klasörüne sağ tıklayarak
+import data-tier applicatin olan a basın
+gelen sekmede database leri tek tek seçin ve devam edin
+next next
+işlem tamamlanmıştır

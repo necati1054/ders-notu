@@ -1,0 +1,263 @@
+--Veritabanı Dersini Alan Öğrenciler.
+
+select o.adı,o.soyadı,d.ders
+from ogrenciler o,dersler d,ogr_ders od
+where o.ogrno = od.ogrno and d.dersno = od.dersno
+and d.ders like '%veri%'
+
+--Bilgisayar programcılığındaki öğrenciler
+
+select * from ogrenciler where bolumno = 1 
+
+--Kredisi 3 ten büyük olan dersler 
+
+select * from dersler where kredisi > 3
+
+--Bilgisayar Programcılığı Dersler
+
+select distinct d.ders, d.kredisi
+from ogrenciler o, dersler d, bolumler b, ogr_ders od
+where o.ogrno = od.ogrno and d.dersno = od.dersno and o.bolumno = b.bolumno and o.bolumno = 1
+
+--Kredisi 3 ten küçük olan dersleri seçen öğrenciler
+
+select distinct o.*
+from dersler d, ogrenciler o, ogr_ders od
+where d.dersno = od.dersno and o.ogrno = od.ogrno and d.kredisi > 4
+
+--Yeni bir ders ekle
+
+insert into dersler 
+(ders,kredisi)
+values
+('internet Programcılığı' , 5)
+
+--var olan dersi sil 
+
+delete from dersler where dersno = 10 
+
+--dersi güncelle 
+
+update dersler 
+	set ders = 'Web Programlama' , kredisi = 8 
+	where dersno = 9 
+
+select * from dersler order by dersno deSC 
+
+--Veri tabanı dersini alan öğrencilerin üstünden dersi kaldırma
+
+delete from ogr_ders where dersno = 1 
+
+--ürün satışı ekleme
+
+insert into satislar
+(urunno, tarih, perno, adet)
+values
+(...,'...',...,...) //tarih tek tırnak içinde unutma
+
+-- necati arman ın bugünki satışları ()
+
+select p.adı, p.soyadı, u.urun, s.tarih, s.adet
+from urunler u, personeller p, satislar s
+where u.urunno = s.urunno and s.perno = p.perno and p.perno =3 and s.tarih = '18.10.2021'
+
+-- ürün ekleme çıkarma işlemi 
+
+update urunler     
+set stok = stok +5 
+where urunno = 2
+
+-- son kullama tarihi geçen ürünleri sil
+
+delete from urunler where sontar < GETDATE()
+
+-- geçen ay satış yapılan ürünler
+
+select u.urun, p.adı , p.soyadı , s.tarih , s.adet
+from satislar s, personeller p, urunler u								(tam çalışması için tarihin date olarak girilmesi gerekiyor varchar kullanırsam tam olarak çıkmaz unutma )
+where s.urunno = u.urunno and p.perno = s.perno and s.tarih between '01.09.2021 ' and '30.09.2021' 
+
+-- hangi üründen ne kadar satılmış
+select u.urun, sum(s.adet)   sum = toplam demek (eğer [...] diye açarsan onu sorgu sorgulamasında nasıl gösteri-
+from urunler u, satislar s	   leceğini seçmşi oluruz)
+where u.urunno = s.urunno
+group by u.urun
+
+--hangi personel kaç adet satış yapmış
+select p.adı + ' ' + p.soyadı [AD -SOYAD], sum(s.adet)
+from personeller p, satislar s
+where p.perno = s.perno
+group by p.adı, p.soyadı
+order by sum(s.adet) desc
+
+-- gırgır satan kişiler 
+select u.urun, p.*, s.adet, s.tarih
+from satislar s, personeller p, urunler u
+where u.urunno = s.urunno and s.perno = p.perno and u.urun like '%gır%' (içined gır kelimesi geçenleri alır)
+
+-- bilg prog 1. sınıf nö sınav prog		
+
+select b.bolum, d.ders, de.derslik, st.tarih, ss.saat 
+from sinavlar s,bolumler b, dersler d, derslikler de, sinav_saatleri ss, sinav_tarihleri st
+where s.bolumno = b.bolumno and s.derslikno = de.derslikno and s.dersno = d.dersno and s.tarihno = st.tarih and s.saatno = ss.saatno and b.bolumno = 1 
+
+-- hangi gün kaç sınav var
+select st.tarih, COUNT(*) [kaç tane]
+from sinavlar s, sinav_tarihleri st
+where s.tarihno = st.tarihno 
+group by st.tarih
+
+--hangi derslikte kaç sınav var
+
+select de.derslik, COUNT(*) [kaç tane]
+from sinavlar s, derslikler de
+where s.derslikno = de.derslikno 
+group by de.derslik
+
+-- hangi derslikte hangi tarihte kaç sınav var
+
+select de.derslik, st.tarih, COUNT(*) [kaç tane]
+from sinavlar s, derslikler de,sinav_tarihleri st
+where s.derslikno = de.derslikno and s.tarihno = st.tarih
+group by de.derslik, st.tarih
+
+VİZEDEN SONRAKİ HAFTA
+
+--Stored Procedures örneği
+Create procedure SpAlSat
+@Krt varchar(10),@urun_no int,@adet int
+as
+begin
+	if(@Krt = 'al')
+		update Urunler
+		set stok = stok + @adet
+		where Urun_no = @urun_no
+
+	if(@Krt = 'sat')
+	begin
+		begin tran t1 --t1 tarnsaction'un ismi (transaction işlem birliği demek)
+			insert into Satislar
+			(urun_no, tarih, adet)
+			values
+			(@urun_no,GETDATE(),@adet)
+			update Urunler
+			set stok = stok - @adet
+			where Urun_no = @urun_no
+		if(@@ERROR <> 0) -- kod çalışırken bir hata olduysa
+			rollback tran t1 -- t1 transaction'ı iptal et
+		else
+			commit tran t1 --t1 transaction'unda hata yoksa bitir
+	end
+end
+
+SpAlSat 'al',3,5 (ilk kriter, hangi ürün, kaç adet)
+
+-- fonksiyon kullanarak tarih verisi ile yaş hesaplama 
+create function hyas(@dogtar date)
+returns int	
+as
+begin
+	declare @yas int
+	declare @dogyıl int
+	declare @yıl int
+	
+	set @dogyıl = YEAR(@dogtar)
+	set @yıl = YEAR(getdate())
+	set @yas = @yıl - @dogyıl
+
+	return @yas
+end
+
+sorgu  = select *,[dbo].[hyas](dogtar) [yas] from personeller
+
+-- fonksiyon ile çocuk genç yaşlı yazdırma yaş a bakarak ama buda bir fonksiyondan geliyor 
+
+create function CGY(@yas int)
+returns varchar(10)
+as
+begin
+	declare @durum varchar(10)
+	if(@yas<18)
+	begin
+		set @durum = 'Çocuk'
+	end
+	else if (@yas<50)
+	begin
+		set @durum = 'Genç'
+	end
+	else
+		set @durum = 'yaşlı'
+
+	return @durum
+end
+
+sorgu = select *,[dbo].[hyas](dogtar)[Yaş],[dbo].[CGY]([dbo].[hyas](dogtar))[durum] from personeller
+
+
+-- tarih verisinin biçimini istelinen e göre ayarlama
+
+create function htarih(@tarih date, @ayraç char(1), @format char(3))
+returns varchar(10)
+as
+begin
+	declare @gün varchar(2)
+	declare @ay varchar(2)
+	declare @yıl varchar(4)
+	declare @sonuc varchar(10)
+
+	set @gün = convert(varchar(10),(day(@tarih)))
+	set @ay = convert(varchar(10),(month(@tarih)))
+	set @yıl = convert(varchar(10),(year(@tarih)))
+
+	if(@format = 'gay')
+		set @sonuc = @gün + @ayraç + @ay + @ayraç + @yıl
+	if(@format = 'agy')
+		set @sonuc = @ay + @ayraç + @gün + @ayraç + @yıl
+	else	
+		set @sonuc = @yıl + @ayraç + @ay + @ayraç + @gün
+
+	return @sonuc
+end
+
+sorgu = select adi,soyadi, [dbo].[htarih](dogtar,'/','agy')[biçim]from personeller
+
+
+-- trigger oluşturma
+
+create trigger THareket on dovizler	
+after update
+as
+begin
+	declare @doviz varchar(50)
+	declare @eski float
+	declare @yeni float
+
+	select @doviz = doviz, @eski = deger from deleted 
+	select @yeni = deger from inserted
+
+	insert into log
+	(doviz, eski_deger, yeni_deger, tarih)
+	values
+	(@doviz,@eski,@yeni,GETDATE())
+
+end
+
+--cursor kullanarak yorumlardaki sakıncalı kelimenin silinişi
+
+declare stemizle cursor for select kelime from sakincali_kelimeler --nasıl tanımlanacağı
+
+declare @kelime varchar(50) --kullanacağımız değişken 
+
+open stemizle --cursor ı açıyoruz
+
+fetch next from stemizle into @kelime --ilk veriye getirmek için kullanıyoruz 
+
+while(@@FETCH_STATUS = 0)  --veri 0 ise aktif kayıt ı işaret ediyordur
+begin
+	delete Yorumlar where yorum like '%' + @kelime + '%' --kelime silme işlemi
+
+	fetch next from stemizle into @kelime --sonraki kelime geçişi
+end
+
+close stemizle --cursor kapama
+deallocate stemizle --bellek teki cursor ı silme 
