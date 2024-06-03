@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <style>
+        .menum ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        .menum li {
+            position: relative;
+            float: left;
+            width: 150px;
+        }
+
+        .menum li ul {
+            display: none;
+            left: 0px;
+            position: absolute;
+            top: 21px;
+        }
+
+        .menum ul li a {
+            background: #EFEFEF;
+            background-color: #CCCCCC #888888 #555555 #BBBBBB;
+            border-style: solid;
+            border-width: 1px;
+            color: #000000;
+            display: block;
+            font: bold 12px Arial, Helvetica, sans-serif;
+            margin: 0px;
+            padding: 2px 3px;
+            text-decoration: none;
+            line-height: 16px;
+        }
+
+        .menum li:hover ul {
+            display: block;
+        }
+
+        .menum ul li a:hover {
+            background: #ffffff;
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menum">
+        <ul>
+            <li><a href="#">Ana Sayfa</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Şirket Tarihçesi</a>
+                <ul>
+                    <li><a href="#">Yöneticilerimiz</a> </li>
+                    <li><a href="#">Çalışanlarımız</a> </li>
+                    <li><a href="#">Faaliyetlerimiz</a> </li>
+                </ul>
+            </li>
+            <li><a href="#">Hizmetlerimiz</a>
+                <ul>
+                    <li><a href="#">Web Tasarım</a></li>
+                    <li><a href="#">Hosting</a> </li>
+                    <li><a href="#">Logo Tasarım</a> </li>
+                    <li><a href="#">Danışmanlık</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Referanslar</a></li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

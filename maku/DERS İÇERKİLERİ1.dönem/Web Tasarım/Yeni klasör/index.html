@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        Adresiniz=<br><textarea name="adresiniz" cols="30" rows="5"></textarea><br>
+        <br>
+        Burcunuz <br>
+        <select name="burc">
+            <option>koç</option>
+            <option>boğa</option>
+            <option>ikizler</option>
+            <option>yengeç</option>
+        </select>
+
+        <br>
+        <br>
+        Burcunuz <br>
+        <select name="burc" size="3" multiple="multiple">
+            <option>koç</option>
+            <option>boğa</option>
+            <option>ikizler</option>
+            <option>yengeç</option>
+        </select>
+
+        <br>
+        <br>
+
+        Ad:<input type="text" name="adi" size="15">
+        Soyadi:<input type="text" name="soyad" size="15">
+        <input type="submit" value="Gönder">
+        <input type="reset" value="Sıfırla">
+
+        <br>
+        <br>
+    </form>
+    Uygulama
+    <form>
+        <h1 style="color: blue;">Form Nesneleri</h1>
+        <hr>
+        <h3 style="color: red;">Uygulama 1</h3>
+        <table>
+            <tr>
+                <td>Kullanici Adi:</td>
+                <td><input type="text" name="nickname"></td>
+            </tr>
+            <tr>
+                <td>Sifre:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Hobileriniz</td>
+                <td>
+                    <input type="checkbox" name="muzik" checked>Müzik<br>
+                    <input type="checkbox" name="sinema">Sinema<br>
+                    <input type="checkbox" name="tiyatro">Tiyatro
+                </td>
+            </tr>
+            <tr>
+                <td>Medeni Hal</td>
+                <td>
+                    <input type="radio" name="medenihal">Evli<br>
+                    <input type="radio" checked name="medenihal">Bekar<br>
+                    <input type="radio" name="medenihal">Dul
+                </td>
+            </tr>
+            <tr>
+                <td>Adres</td>
+                <td>
+                    <textarea name="adres" cols="40" rows="5"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>Bölüm</td>
+                <td>
+                    <select multiple="multiple" size="3">
+                        <option>Bilişim</option>
+                        <option>Muhasebe</option>
+                        <option>Pazarlama</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><input type="reset" value="Sil"></td>
+                <td><input type="submit" value="Gönder"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

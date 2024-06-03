@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .menum ul {
+            margin: 0px;
+            padding: 0px;
+            width: 150px;
+            list-style: none;
+        }
+
+        .menum li {
+            position: relative;
+        }
+
+        .menum li ul {
+            position: absolute;
+            list-style: none;
+            left: 149px;
+            width: 150px;
+            display: none;
+            top: 0px;
+        }
+
+        .menum li a {
+            display: block;
+            text-decoration: none;
+            background-color: #9cf;
+            font: bold 13px Verdana;
+            padding: 5px;
+            border: 1px solid #000;
+            border-bottom: px;
+        }
+
+        .menum li a:hover {
+            background-color: #012D58;
+            color: #ff0;
+        }
+
+        .menum li:hover ul {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="menum">
+        <ul>
+            <li><a href="#">Ana Sayfa</a></li>
+            <li><a href="#">Hakkımızda</a></li>
+            <li><a href="#">Şirket Tarihçesi</a>
+                <ul>
+                    <li><a href="#">Yöneticilerimiz</a> </li>
+                    <li><a href="#">Çalışanlarımız</a> </li>
+                    <li><a href="#">Faaliyetlerimiz</a> </li>
+                </ul>
+            </li>
+            <li><a href="#">Hizmetlerimiz</a>
+                <ul>
+                    <li><a href="#">Web Tasarım</a></li>
+                    <li><a href="#">Hosting</a> </li>
+                    <li><a href="#">Logo Tasarım</a> </li>
+                    <li><a href="#">Danışmanlık</a></li>
+                </ul>
+            </li>
+            <li><a href="#">Referanslar</a></li>
+            <li><a href="#">İletişim</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>

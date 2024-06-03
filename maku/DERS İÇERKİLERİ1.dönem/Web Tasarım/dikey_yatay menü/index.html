@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* dikey */
+        .menum1 {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .menum1 a {
+            display: block;
+            color: #000;
+            background-color: #9CF;
+            width: 80px;
+            text-decoration: none;
+            padding: 4px 10px;
+        }
+
+        .menum1 a:hover {
+            font-weight: bold;
+            color: #fff;
+            background-color: #2586D7;
+        }
+
+        .menum1 li {
+            margin: 0px 0px 2px 0px;
+        }
+
+        /* yatay */
+        .menum2 {
+            list-style-type: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .menum2 a {
+            color: #000;
+            background-color: #9CF;
+            width: 80px;
+            text-decoration: none;
+            padding: 4px 10px;
+        }
+
+        .menum2 a:hover {
+            font-weight: bold;
+            color: #fff;
+            background-color: #2586D7;
+        }
+
+        .menum2 li {
+            display: inline;
+        }
+
+        /* açılır menü */
+
+        .menum3 ul {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+            width: 150px;
+        }
+
+        .menum3 li {
+            position: relative;
+        }
+
+        .menum3 li ul {
+            position: absolute;
+            list-style: none;
+            left: 149px;
+            width: 150px;
+            display: none;
+            top: 0px;
+        }
+
+        .menum3 li a {
+            display: block;
+            text-decoration: none;
+            background-color: #9CF;
+            color: #000;
+            font: bold 13px Verdana;
+            padding: 5px;
+            border-bottom: 1px solid #fff;
+            border-bottom: 0px;
+        }
+
+        .menum3 li a:hover {
+            background-color: #012D58;
+            color: #ff0;
+        }
+
+        .menum3 li:hover ul {
+            display: block;
+        }
+
+        * html ul li {
+            float: left;
+            height: 1%;
+        }
+
+        *html ul li a {
+            height: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menum3">
+        <li><a href="#">Ana sayfa</a></li>
+        <li><a href="#">Hakkımızda</a>
+            <ul>
+                <li href="#">Şirket Tarihçesi</li>
+                <li href="#">Yöenticilerimiz</li>
+                <li href="#">Çalışanlarımız</li>
+                <li href="#">Faaliyetlerimiz</li>
+            </ul>
+        </li>
+        <li><a href="#">Hizmetlerimiz</a>
+            <ul>
+                <li href="#">Web Tasarım</li>
+                <li href="#">Hosting</li>
+                <li href="#">Logo Tasarım</li>
+                <li href="#">Danışmanlık</li>
+            </ul>
+        </li>
+        <li><a href="#">Referanslar</a></li>
+        <li><a href="#">İletişim</a></li>
+    </ul>
+</body>
+
+</html>
