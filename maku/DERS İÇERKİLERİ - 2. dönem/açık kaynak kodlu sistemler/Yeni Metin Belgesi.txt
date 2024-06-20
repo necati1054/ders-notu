@@ -1,0 +1,27 @@
+gzip
+gzip -9 deneme2 
+gzip -d deneme2.gz
+
+bzip2
+bzip2 deneme.txt
+bunbzip2 deneme.bz2
+
+tar
+tar -cvf ziplenecek.tar ziplenecek
+tar -xvf ziplenecek.tar
+
+zip
+zip -1 deneme.zip deneme3
+unzip deneme3.zip
+
+clamav -> virüs programı
+
+sudo apt install clamav clamav-daemon
+clamdscan -f /
+clamscan -r --bell -i
+
+shebang
+
+#!/bin/bash
+yada
+.sh

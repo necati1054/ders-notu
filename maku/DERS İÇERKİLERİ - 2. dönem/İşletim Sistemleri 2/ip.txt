@@ -1,0 +1,3 @@
+ipconfig /all -> pc deki ayarı gösterir
+ipconfig /release -> pc nin aldığı ip yi bırakmak için
+ipconfig /renew -> yeni bir ip alması için kullanılır

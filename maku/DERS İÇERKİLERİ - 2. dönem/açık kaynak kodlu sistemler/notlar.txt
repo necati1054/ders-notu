@@ -1,0 +1,105 @@
+mkdir years/{2023,2024}/{01,02,03,04,05,06,07,08,09,10,11,12}
+
+years klasörü altına 2023 ve 2024 açar ve 2023 ve 2024 dosyalarını altına da ayları rakamlar ile ekler
+
+
+ls -l [[:uppercase]] *.pdf -> ilk harfi büyük harf olan gelir
+	:lower		   -> ilk hardi küçük olanları getirir
+
+ls -l [!P]*.pdf -> başında p harfi olmayanları getirir.
+
+apropos ls -> içinde ls geçen ne varsa getirir
+
+man ls -> ls için kullanım kılavuzunu açar
+
+help ls or ls --help -> nasıl kullanılacağını söyler
+info -> nasıl kullanılacağını söyler
+whatis -> nasıl kullanılacağını söyler
+
+which -> nerede kulu olduğunu söyler
+
+
+les -> txt dosyasının içini okumak için
+more -> txt dosyasının içini okumak için
+cat -> txt dosyasının içini okumak için
+
+ > çıktı.txt -> çıktı txt üstüne yazar
+ >> çıktı.txt -> çıktı txt içine ekler
+ &>> çıktı.txt -> çıktı txt içine hata mesajları var ise onları da ekler
+ 
+ cat çıktı.txt -> içinden çıkmak için ctrl + d
+ grep Po çıktı.txt -> içinde Po olan şeyleri çıkartırlar
+ uniq çıktı.txt -> tekil olarak göstermek için
+ sort çıktı.txt -> alfabatik olarak çıktı getirir.
+ wc çıktı.txt -> çıktı.txt nin boyutunu satır sayısını veriyor
+ tail -n 3 çıktı.txt -> sondan 3 yazı
+ head -m 3 çıktı.txt -> baştan 3 yazı
+ 
+ cat çıktı2.txt | head -n 10 | tail -n 3 | grep 29 | cat >> çıktı.txt
+ çıktı2.txt dosyasını açıp baştan 10 alıp o aldığı 10 tanenin sondan 3 ünü alıp içinde 29 geçen çıktıları çıktı.txt nin içine ekler
+ 
+history -c -> history deki hepsini siliyor 
+
+!! -> en son kullanılan komutu çalıştırır
+!index -> index numarasında ne var ise onu çalıştırır
+ctrl + r -> arrattığın kelime için en son  ne kullanıldı ise onu getirir ve çalıştırır
+
+u -> root
+g -> 
+o -> outher (global tüm dünya da)
+
+umask -> izinleri değiştirmek için kullanılır chmod tan tersi şeklinde çalışır
+chmod -> izinleri değiştirmek için kullanılır 
+chgrp -> dosya kişilerini grubunu değiştirmek için kullanılır
+
+ joker karakter - genişletme karakterleri
+ 
+ps -> görev yöneticisi gibi (static) x koyasan eğer daha fazla verir (x in önünde - yok)
+ps x --sort=%(cpu/mem) -> en fazla memory kullananları listeler
+top -> dynamic görev yöneticisi
+
+jobs -> açık olan programı lisleter (sadece terminal de açılan uygulamalar ı listeler)
+fg %2 -> ikinci sıradaki işi kapatır
+
+sleep 5 && xlogo -> 5saniye sonra xlogo yu açar
+
+sleep 1 && echo "benim" && sleep 1 && echo "ismim" && sleep 1 && echo "necaticl" -> 1 saniye ara ile benim ismimi necati yazan kod
+
+find /home iname * or ??? -> hepsini yada 3 karakter olanları getirir
+
+findmnt -> ağaç şeklinde listeler
+
+
+ispell asdf -> dosya daki yazıların doğru mu yanlış mı yazıldığını kontrol ediyor
+
+asdf.txt
+1 necati
+2 arman
+3 me
+
+fdsa.txt
+1 me
+2 arman
+3 necati
+
+asdffdsa.txt
+1 necati me
+2 arman arman
+3 me necati
+
+join asdf fdsa -> ikisinin birleşmiş halini ekran a basar
+join asdf fdsa > asdfffdsa -> birleşmiş halini asdffdsa dosyasının içine atar
+
+
+
+
+
+
+
+
+
+--- vizeden sonra 12.hafta
+
+alien uyumsuz paketi uyumlu hale convert vermek için
+dpkg -i dosya.deb
+sudo apt remove dosya.deb

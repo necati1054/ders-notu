@@ -1,0 +1,4 @@
+bir domain i kurabilmek için ve ve daha sonra kullanabilmek için araçtır.
+
+Forest = birden fazla parent domain in birleşimi
+child = parent domain in alt domainleri (subdomain)

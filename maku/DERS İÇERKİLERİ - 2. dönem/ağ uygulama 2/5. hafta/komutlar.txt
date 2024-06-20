@@ -1,0 +1,51 @@
+en
+conf t
+int ran f0/1-12
+switchport mode access
+switchport access vlan 30
+exit
+int ran f0/13-24
+switchport mode access
+switchport access vlan 40
+exit
+
+
+en
+conf t
+int g0/1.1
+encapsulation dot1Q 30
+ip address 192.168.3.1 255.255.255.0
+exit
+int g0/1.2
+encapsulation dot1Q 40
+ip address 192.168.4.1 255.255.255.0
+exit
+int g0/1
+no sh
+
+
+// 2. uygulama için
+
+en
+conf t
+int f0/11
+switchport mode access
+switchport access vlan 10
+exit
+int f0/6
+switchport mode access
+switchport access vlan 30
+exit
+
+en
+conf t
+int g0/0.10
+encapsulation dot1Q 10
+ip address 172.17.10.1 255.255.255.0
+exit
+int g0/0.30
+encapsulation dot1Q 30
+ip address 172.17.30.1 255.255.255.0
+exit
+int g0/0
+no sh

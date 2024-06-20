@@ -1,0 +1,38 @@
+en
+conf t
+interface port-channel 1
+no sh
+ip address 192.168.1.1 255.255.255.0
+exit
+interface range g0/1-2
+channel-group 1
+no sh
+
+
+en 
+conf t
+interface port-channel 1
+no sh
+exit
+interface range g0/1-2
+channel-group 1 mode on
+exit
+interface port-channel 2
+no sh 
+exit
+interface range f0/1-2
+channel-group 2 mode desirable
+no sh
+exit
+
+en
+conf t 
+interface port-channel 2
+no sh
+exit
+interface range f0/1-2
+channel-group 2 mode desirable
+no sh
+exit
+
+pc-> ip Configuration = 192.168.1.10 255.255.255.0 192.168.1.1

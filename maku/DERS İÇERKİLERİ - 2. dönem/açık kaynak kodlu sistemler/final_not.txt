@@ -1,0 +1,42 @@
+cat -> düzenleyici
+grep -> arama 
+uniq -> tekil olanları bulur
+sort -> alfabetik sıralar
+wc -> boyut satır sütun sayısı verir
+tail -> sondan
+head -> baştan
+
+ps -> görev yöneticisi (static)
+top -> görev yöneticisi (dinamik)
+
+jobs -> açık işleri listeler
+fg %index -> açık olan işleri kapatır
+
+sleep -> delay şeklinde çalışır
+
+ispell -> dosya içindeki yazıların yazım yanlışlarına bakar
+
+join -> aynı indexleri birleştirir
+
+alien -> uyumsuz paket i uyumlu hale getirir
+
+sıkıştırma türleri
+zip
+gzip
+bzip2
+tar
+
+clamav clamav-daemon
+clamdscan -f
+
+script dosyası
+#!/bin/bash
+.sh
+
+LİNUS TORVALDS ->
+
+gnu linux ->
+
+alias -> komut un ismini değiştirme
+
+dpkg -i dosya.deb -> deb uzantılı dosyayı kurmak için
